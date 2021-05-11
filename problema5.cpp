@@ -51,6 +51,7 @@ int cuentaConsonante(string nombreFichero){
     return nConsonante;
 }
 
+//Devuelve el numero de lineas de un fichero
 int cuentaLinea(string nombreFichero){
     ifstream in(nombreFichero);
     int nLinea;
@@ -74,13 +75,13 @@ int cuentaLinea(string nombreFichero){
 int cuentaPalabra(string nombreFichero){
     ifstream in(nombreFichero);
     int nPal;
-    string palabra;
+    char c;
     nPal=0;
     
     if(in.is_open()){
 	in >> palabra;
-	while( !in.eof() ){
-	    if(in.eof()){
+	while(in.get(c)){
+	    if(c==' ' || c=='\t' || c=='\n'){
 		nPal++;
 	    }
 	}
